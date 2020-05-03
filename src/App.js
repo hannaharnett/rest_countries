@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import { Route, Switch } from "react-router-dom";
-import "./App.css";
 
 import Navbar from "./Navbar";
 import CountriesList from "./CountriesList";
@@ -52,13 +51,17 @@ class App extends Component {
   }
   render() {
     return (
-      <div className="App">
+      <div>
         <Navbar />
         <Switch>
           <Route
             path="/:id"
             render={(props) => (
-              <CountryDetails {...props} countries={this.state.countries} />
+              <CountryDetails
+                {...props}
+                countries={this.state.countries}
+                regionFilter={this.state.regionFilter}
+              />
             )}
           />
           <Route

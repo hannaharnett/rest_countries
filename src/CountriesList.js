@@ -1,18 +1,21 @@
 import React, { Component } from "react";
+
 import CountryCard from "./CountryCard";
+
+import "./countries-list.css";
 
 class CountriesList extends Component {
   constructor(props) {
     super(props);
     this.onInputChange = this.onInputChange.bind(this);
-    this.onInputClick = this.onInputClick.bind(this);
+    this.onInputKeyPress = this.onInputKeyPress.bind(this);
     this.onInputSelect = this.onInputSelect.bind(this);
   }
   onInputChange(event) {
     const { name, value } = event.target;
     this.props.handleChange(name, value);
   }
-  onInputClick(event) {
+  onInputKeyPress(event) {
     if (event.key === "Enter") {
       this.props.displaySearch(this.props.search);
     }
@@ -36,31 +39,37 @@ class CountriesList extends Component {
       );
     });
     return (
-      <div>
-        <div>
-          <input
-            type="text"
-            name="search"
-            placeholder="Search for a country..."
-            onChange={this.onInputChange}
-            onKeyPress={this.onInputClick}
-          />
-          <select
-            name="region"
-            // onChange={(event) =>
-            //   this.props.displaySearch(event.target.value, "region")
-            // }
-            onChange={this.onInputSelect}
-          >
-            <option value="">Filter By Region</option>
-            <option value="Africa">Africa</option>
-            <option value="Americas">Americas</option>
-            <option value="Asia">Asia</option>
-            <option value="Europe">Europe</option>
-            <option value="Oceania">Oceania</option>
-          </select>
+      <div className="container">
+        <div className="query-nav">
+          <span className="search-field">
+            <i
+              className="fas fa-search"
+              onClick={() => this.props.displaySearch(this.props.search)}
+            ></i>
+            <input
+              type="text"
+              name="search"
+              autoComplete="off"
+              placeholder="Search for a country..."
+              onChange={this.onInputChange}
+              onKeyPress={this.onInputKeyPress}
+            />
+          </span>
+
+          <div>
+            <select name="region" onChange={this.onInputSelect}>
+              <option value="" defaultValue>
+                Filter By Region
+              </option>
+              <option value="Africa">Africa</option>
+              <option value="Americas">Americas</option>
+              <option value="Asia">Asia</option>
+              <option value="Europe">Europe</option>
+              <option value="Oceania">Oceania</option>
+            </select>
+          </div>
         </div>
-        <div style={{ display: "flex", flexWrap: "wrap" }}>{list}</div>
+        <div className="country-grid">{list}</div>
       </div>
     );
   }

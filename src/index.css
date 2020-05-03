@@ -1,13 +1,38 @@
+/* define all color variables */
+:root {
+  --border: rgba(0, 0, 0, 0.2);
+  --shadow: rgba(0, 0, 0, 0.1);
+  --elements: hsl(0, 0%, 100%);
+  --text: hsl(200, 15%, 8%);
+  --textInput: hsl(0, 0%, 52%);
+  --background: hsl(0, 0%, 98%);
+}
+
+.link {
+  text-decoration: none;
+  color: var(--text);
+}
+
+button {
+  background: var(--elements);
+}
+
+button:focus {
+  outline: var(--elements);
+}
+
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
+
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background: var(--background);
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }

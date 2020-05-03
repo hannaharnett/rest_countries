@@ -1,0 +1,19 @@
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 70px;
+  background: var(--elements);
+  -webkit-box-shadow: 0 3px 3px var(--shadow);
+  -moz-box-shadow: 0 3px 3px var(--shadow);
+  box-shadow: 0 3px 3px var(--shadow);
+}
+
+.theme-btn {
+  border: none;
+  font-size: 14px;
+  color: var(--text);
+}
+
+.theme-btn:hover {
+  cursor: pointer;
+}

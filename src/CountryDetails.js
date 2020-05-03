@@ -46,7 +46,12 @@ class CountryDetails extends Component {
           .map((value, index) => {
             return (
               <div key={index}>
-                <Link to={`/${value.name.toLowerCase()}`}>{value.name}</Link>
+                <Link
+                  to={`/${value.name.toLowerCase()}`}
+                  className="link border-btn"
+                >
+                  {value.name}
+                </Link>
               </div>
             );
           });
@@ -95,7 +100,7 @@ class CountryDetails extends Component {
 
               <div>
                 <p>Border Countries:</p>
-                {borderCountries}
+                <div className="borders">{borderCountries}</div>
               </div>
             </div>
           </div>
