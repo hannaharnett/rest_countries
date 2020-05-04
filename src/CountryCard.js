@@ -1,27 +1,29 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
-
-const image = {
-  width: "100%",
-};
-
-// const card = {
-//   border: "2px solid black",
-//   width: "20%",
-//   margin: "30px",
-// };
+import "./country-card.css";
 
 class CountryCard extends Component {
   render() {
-    const { name, flag, population, region, capital } = this.props;
+    const { name, population, region, capital, flag } = this.props;
     return (
-      <div>
+      <div className="country-card">
         <Link to={`/${name.toLowerCase()}`} className="link">
-          <img style={image} src={flag} alt={name} />
-          <h1>{name}</h1>
-          <h3>Population: {population}</h3>
-          <h3>Region: {region}</h3>
-          <h3>Capital: {capital}</h3>
+          <div
+            className="flag"
+            style={{ backgroundImage: `url(${flag})` }}
+          ></div>
+          <div className="card-info">
+            <h3>{name}</h3>
+            <p>
+              Population: <span>{population.toLocaleString()}</span>
+            </p>
+            <p>
+              Region: <span>{region}</span>
+            </p>
+            <p>
+              Capital: <span>{capital}</span>
+            </p>
+          </div>
         </Link>
       </div>
     );
