@@ -1,7 +1,13 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 
+import "./country-details.css";
+
 class CountryDetails extends Component {
+  constructor(props) {
+    super(props);
+    this.goBack = this.goBack.bind(this);
+  }
   loopProperty(arr, query) {
     let result = [];
     arr.map((obj) => {
@@ -13,6 +19,15 @@ class CountryDetails extends Component {
       return result;
     });
     return result;
+  }
+  goBack() {
+    this.props.history.goBack();
+  }
+  truncateString(str, num) {
+    if (str.length <= num) {
+      return str;
+    }
+    return str.slice(0, num) + "...";
   }
   render() {
     const countryDetails = this.props.countries
@@ -46,24 +61,24 @@ class CountryDetails extends Component {
           .map((value, index) => {
             return (
               <div key={index}>
-                <Link
-                  to={`/${value.name.toLowerCase()}`}
-                  className="link border-btn"
-                >
-                  {value.name}
+                <Link to={`/${value.name.toLowerCase()}`}>
+                  <button className="link border-btn btn">
+                    {this.truncateString(value.name, 9)}
+                  </button>
                 </Link>
               </div>
             );
           });
+        console.log(borderCountries);
 
         return (
-          <div key={name}>
-            <div>
+          <div key={name} className="details-container">
+            <div className="flag-container">
               <img src={flag} alt={name} />
             </div>
-            <div>
+            <div className="text-container">
               <h1>{name}</h1>
-              <div>
+              <div className="country-info">
                 <p>
                   Native Name:
                   <span>{nativeName}</span>
@@ -98,8 +113,13 @@ class CountryDetails extends Component {
                 </p>
               </div>
 
-              <div>
-                <p>Border Countries:</p>
+              <div className="borders-container">
+                <p>
+                  {borderCountries.length < 1
+                    ? "No Bordering Countries"
+                    : "Border Countries:"}
+                </p>
+
                 <div className="borders">{borderCountries}</div>
               </div>
             </div>
@@ -108,6 +128,10 @@ class CountryDetails extends Component {
       });
     return (
       <div>
+        <button className="go-back-btn btn" onClick={this.goBack}>
+          <i className="fas fa-arrow-left"></i>Back
+        </button>
+
         <div>{countryDetails}</div>
       </div>
     );

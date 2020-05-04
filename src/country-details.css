@@ -1,0 +1,67 @@
+.details-container {
+  display: flex;
+  color: var(--text);
+}
+
+.country-info {
+  height: 30%;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+}
+
+.btn {
+  color: var(--text);
+  border: var(--background);
+  border-radius: 5px;
+  transition: all 0.2s ease-in-out;
+  -webkit-box-shadow: 0 0 4px 1px var(--shadow);
+  -moz-box-shadow: 0 0 4px 1px var(--shadow);
+  box-shadow: 0 0 6px 1px var(--shadow);
+}
+
+.go-back-btn {
+  width: 150px;
+  height: 50px;
+  margin: 70px 50px;
+  font-size: 16px;
+}
+
+.border-btn {
+  width: 100px;
+  height: 30px;
+  font-size: 14px;
+  margin: 0 0 10px 10px;
+}
+
+.btn:hover {
+  cursor: pointer;
+  transform: scale(0.9);
+}
+
+img {
+  width: 500px;
+  margin: 0 50px;
+}
+
+.text-container {
+  height: 500px;
+  width: 700px;
+  display: flex;
+  flex-direction: column;
+  margin-left: 50px;
+}
+
+p > span {
+  margin-left: 5px;
+}
+
+.borders-container {
+  display: flex;
+  margin-top: 50px;
+}
+
+.borders {
+  display: flex;
+  flex-wrap: wrap;
+}
