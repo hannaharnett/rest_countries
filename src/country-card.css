@@ -4,6 +4,9 @@
   background: var(--elements);
   border-radius: 0 0 5px 5px;
   transition: transform 0.2s ease;
+  -webkit-box-shadow: 0 0 4px 1px var(--shadow);
+  -moz-box-shadow: 0 0 4px 1px var(--shadow);
+  box-shadow: 0 0 6px 1px var(--shadow);
 }
 
 .country-card:hover {
