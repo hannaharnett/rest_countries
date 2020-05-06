@@ -31,7 +31,6 @@ input::placeholder {
 
 select {
   width: 180px;
-  appearance: slider-horizontal;
 }
 
 select,
@@ -62,7 +61,27 @@ input[type="text"]:focus {
 
 .country-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
   gap: 80px 60px;
   padding: 40px 0;
+}
+
+@media only screen and (max-width: 414px) {
+  .container {
+    padding: 40px 40px;
+  }
+  .query-nav {
+    flex-direction: column;
+    width: 100%;
+  }
+  .search-field {
+    margin-bottom: 40px;
+    width: 100%;
+  }
+}
+
+@media only screen and (min-width: 415px) and (max-width: 768px) {
+  .search-field {
+    width: 350px;
+  }
 }
