@@ -11,6 +11,7 @@ class App extends Component {
     this.state = {
       countries: [],
       search: "",
+      region: "",
     };
     this.getData = this.getData.bind(this);
     this.displaySearch = this.displaySearch.bind(this);
@@ -37,15 +38,12 @@ class App extends Component {
   getAllCountries() {
     this.getData("https://restcountries.eu/rest/v2/all");
   }
-  getOneCountry(name) {
-    this.getData(`https://restcountries.eu/rest/v2/name/${name}`);
-  }
   displaySearch(name, query) {
     if (!name || query === "") {
       return this.getAllCountries();
     }
     if (!query) {
-      return this.getOneCountry(name);
+      return this.getData(`https://restcountries.eu/rest/v2/name/${name}`);
     }
     this.getData(`https://restcountries.eu/rest/v2/${query}/${name}`);
   }
@@ -57,11 +55,7 @@ class App extends Component {
           <Route
             path="/:id"
             render={(props) => (
-              <CountryDetails
-                {...props}
-                countries={this.state.countries}
-                regionFilter={this.state.regionFilter}
-              />
+              <CountryDetails {...props} countries={this.state.countries} />
             )}
           />
           <Route
@@ -69,6 +63,7 @@ class App extends Component {
             render={(props) => (
               <CountriesList
                 {...props}
+                region={this.state.region}
                 handleChange={this.handleChange}
                 search={this.state.search}
                 countries={this.state.countries}
