@@ -15,6 +15,10 @@
   color: var(--text);
 }
 
+.theme-btn i {
+  margin-right: 8px;
+}
+
 .theme-btn:hover {
   cursor: pointer;
 }

@@ -5,6 +5,21 @@ import "./navbar.css";
 
 export default function Navbar() {
   const { dark, toggleTheme } = useContext(ThemeContext);
+  const themeBtn = (
+    <button className="theme-btn" onClick={() => toggleTheme()}>
+      {dark ? (
+        <span>
+          <i className="fas fa-moon"></i>
+          Dark Mode
+        </span>
+      ) : (
+        <span>
+          <i className="far fa-moon"></i>
+          Light Mode
+        </span>
+      )}
+    </button>
+  );
 
   return (
     <div className="navbar">
@@ -13,7 +28,7 @@ export default function Navbar() {
       </Link>
 
       <button className="theme-btn" onClick={() => toggleTheme()}>
-        {dark ? "Dark Mode" : "Light Mode"}
+        {themeBtn}
       </button>
     </div>
   );

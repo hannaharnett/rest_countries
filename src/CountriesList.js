@@ -58,7 +58,11 @@ class CountriesList extends Component {
           </span>
 
           <div class="dropdown">
-            <button>{region ? region : "Filter by Region"}</button>
+            <button>
+              <span>{region ? region : "Filter by Region"}</span>
+
+              <i className="fas fa-chevron-down"></i>
+            </button>
             <ul>
               <li data-id="Africa" onClick={this.onInputSelect}>
                 Africa
