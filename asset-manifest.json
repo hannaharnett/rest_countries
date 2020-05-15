@@ -1,22 +1,22 @@
 {
   "files": {
-    "main.css": "/where-in-the-world/static/css/main.6066e5e6.chunk.css",
-    "main.js": "/where-in-the-world/static/js/main.a6000872.chunk.js",
-    "main.js.map": "/where-in-the-world/static/js/main.a6000872.chunk.js.map",
-    "runtime-main.js": "/where-in-the-world/static/js/runtime-main.76bdc178.js",
-    "runtime-main.js.map": "/where-in-the-world/static/js/runtime-main.76bdc178.js.map",
-    "static/js/2.db33f9f7.chunk.js": "/where-in-the-world/static/js/2.db33f9f7.chunk.js",
-    "static/js/2.db33f9f7.chunk.js.map": "/where-in-the-world/static/js/2.db33f9f7.chunk.js.map",
-    "index.html": "/where-in-the-world/index.html",
-    "precache-manifest.1fb8f2a8ed54f6523024049c03cd7e4b.js": "/where-in-the-world/precache-manifest.1fb8f2a8ed54f6523024049c03cd7e4b.js",
-    "service-worker.js": "/where-in-the-world/service-worker.js",
-    "static/css/main.6066e5e6.chunk.css.map": "/where-in-the-world/static/css/main.6066e5e6.chunk.css.map",
-    "static/js/2.db33f9f7.chunk.js.LICENSE.txt": "/where-in-the-world/static/js/2.db33f9f7.chunk.js.LICENSE.txt"
+    "main.css": "/rest_countries/static/css/main.6066e5e6.chunk.css",
+    "main.js": "/rest_countries/static/js/main.d1408ea7.chunk.js",
+    "main.js.map": "/rest_countries/static/js/main.d1408ea7.chunk.js.map",
+    "runtime-main.js": "/rest_countries/static/js/runtime-main.7da3dc0f.js",
+    "runtime-main.js.map": "/rest_countries/static/js/runtime-main.7da3dc0f.js.map",
+    "static/js/2.a360915a.chunk.js": "/rest_countries/static/js/2.a360915a.chunk.js",
+    "static/js/2.a360915a.chunk.js.map": "/rest_countries/static/js/2.a360915a.chunk.js.map",
+    "index.html": "/rest_countries/index.html",
+    "precache-manifest.a7ea796b7270af159e327213f07151be.js": "/rest_countries/precache-manifest.a7ea796b7270af159e327213f07151be.js",
+    "service-worker.js": "/rest_countries/service-worker.js",
+    "static/css/main.6066e5e6.chunk.css.map": "/rest_countries/static/css/main.6066e5e6.chunk.css.map",
+    "static/js/2.a360915a.chunk.js.LICENSE.txt": "/rest_countries/static/js/2.a360915a.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
-    "static/js/runtime-main.76bdc178.js",
-    "static/js/2.db33f9f7.chunk.js",
+    "static/js/runtime-main.7da3dc0f.js",
+    "static/js/2.a360915a.chunk.js",
     "static/css/main.6066e5e6.chunk.css",
-    "static/js/main.a6000872.chunk.js"
+    "static/js/main.d1408ea7.chunk.js"
   ]
 }
