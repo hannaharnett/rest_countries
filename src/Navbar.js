@@ -1,12 +1,12 @@
 import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import ThemeContext from "./theme-context";
-import "./navbar.css";
+import styles from "./navbar.module.css";
 
 export default function Navbar() {
   const { dark, toggleTheme } = useContext(ThemeContext);
   const themeBtn = (
-    <button className="theme-btn" onClick={() => toggleTheme()}>
+    <button className={styles.themeBtn} onClick={() => toggleTheme()}>
       {dark ? (
         <span>
           <i className="fas fa-moon"></i>
@@ -22,14 +22,12 @@ export default function Navbar() {
   );
 
   return (
-    <div className="navbar">
+    <div className={styles.navbar}>
       <Link to="/" className="link">
         <h2>Where in the World?</h2>
       </Link>
 
-      <button className="theme-btn" onClick={() => toggleTheme()}>
-        {themeBtn}
-      </button>
+      {themeBtn}
     </div>
   );
 }

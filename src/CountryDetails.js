@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 
-import "./country-details.css";
+import styles from "./CountryDetails.module.css";
 
 class CountryDetails extends Component {
   constructor(props) {
@@ -62,23 +62,22 @@ class CountryDetails extends Component {
             return (
               <div key={index}>
                 <Link to={`/${value.name.toLowerCase()}`}>
-                  <button className="link border-btn btn">
+                  <button className={`link ${styles.borderBtn} ${styles.btn}`}>
                     {this.truncateString(value.name, 9)}
                   </button>
                 </Link>
               </div>
             );
           });
-        console.log(borderCountries);
 
         return (
-          <div key={name} className="details-container">
-            <div className="flag-container">
+          <div key={name} className={styles.detailsContainer}>
+            <div className={styles.flagContainer}>
               <img src={flag} alt={name} />
             </div>
-            <div className="text-container">
+            <div className={styles.textContainer}>
               <h1>{name}</h1>
-              <div className="country-info">
+              <div className={styles.countryInfo}>
                 <p>
                   Native Name:
                   <span>{nativeName}</span>
@@ -113,14 +112,14 @@ class CountryDetails extends Component {
                 </p>
               </div>
 
-              <div className="borders-container">
+              <div className={styles.bordersContainer}>
                 <p>
                   {borderCountries.length < 1
                     ? "No Bordering Countries"
                     : "Border Countries:"}
                 </p>
 
-                <div className="borders">{borderCountries}</div>
+                <div className={styles.borders}>{borderCountries}</div>
               </div>
             </div>
           </div>
@@ -128,7 +127,10 @@ class CountryDetails extends Component {
       });
     return (
       <div>
-        <button className="go-back-btn btn" onClick={this.goBack}>
+        <button
+          className={`${styles.goBackBtn} ${styles.btn}`}
+          onClick={this.goBack}
+        >
           <i className="fas fa-arrow-left"></i>Back
         </button>
 

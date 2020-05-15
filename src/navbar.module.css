@@ -9,17 +9,17 @@
   box-shadow: 0 3px 3px var(--shadow);
 }
 
-.theme-btn {
+.themeBtn {
   border: none;
   font-size: 14px;
   color: var(--text);
 }
 
-.theme-btn i {
+.themeBtn i {
   margin-right: 8px;
 }
 
-.theme-btn:hover {
+.themeBtn:hover {
   cursor: pointer;
 }
 

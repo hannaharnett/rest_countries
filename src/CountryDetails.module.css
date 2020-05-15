@@ -1,9 +1,9 @@
-.details-container {
+.detailsContainer {
   display: flex;
   color: var(--text);
 }
 
-.country-info {
+.countryInfo {
   display: grid;
   grid-auto-flow: column;
   grid-template-rows: repeat(5, 1fr);
@@ -20,14 +20,18 @@
   box-shadow: 0 0 6px 1px var(--shadow);
 }
 
-.go-back-btn {
+.goBackBtn {
   width: 150px;
   height: 50px;
   margin: 70px 50px;
   font-size: 16px;
 }
 
-.border-btn {
+.goBackBtn i {
+  margin-right: 12px;
+}
+
+.borderBtn {
   width: 100px;
   height: 30px;
   font-size: 14px;
@@ -44,7 +48,7 @@ img {
   margin: 0 50px;
 }
 
-.text-container {
+.textContainer {
   height: 500px;
   width: 700px;
   display: flex;
@@ -56,7 +60,7 @@ p > span {
   margin-left: 5px;
 }
 
-.borders-container {
+.bordersContainer {
   display: flex;
   margin-top: 50px;
 }
@@ -67,37 +71,37 @@ p > span {
 }
 
 @media only screen and (max-width: 1024px) {
-  .details-container {
+  .detailsContainer {
     flex-direction: column;
   }
   img {
     width: 80%;
     margin: 0 40px;
   }
-  .go-back-btn {
+  .goBackBtn {
     width: 110px;
     height: 40px;
     margin: 50px 40px;
     font-size: 14px;
   }
-  .borders-container {
+  .bordersContainer {
     flex-direction: column;
   }
-  .country-info {
+  .countryInfo {
     flex-wrap: nowrap;
   }
-  .text-container {
+  .textContainer {
     height: 100vh;
     width: 90%;
     margin-left: 40px;
   }
-  .border-btn {
+  .borderBtn {
     margin: 0 10px 10px 0;
   }
 }
 
 @media only screen and (max-width: 414px) {
-  .country-info {
+  .countryInfo {
     grid-auto-flow: row;
     grid-template-columns: 1fr;
   }

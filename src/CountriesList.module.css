@@ -3,7 +3,7 @@
   padding: 0;
 }
 
-.search-field {
+.searchField {
   display: flex;
   justify-content: center;
   width: 450px;
@@ -14,7 +14,7 @@ i {
   align-self: center;
 }
 
-.search-field i {
+.searchField i {
   margin-right: 15px;
 }
 
@@ -39,7 +39,7 @@ input::placeholder {
 }
 
 .dropdown,
-.search-field {
+.searchField {
   height: 50px;
   padding: 10px 25px;
   border: var(--background);
@@ -119,12 +119,12 @@ input[type="text"]:focus {
   padding: 40px 70px;
 }
 
-.query-nav {
+.queryNav {
   display: flex;
   justify-content: space-between;
 }
 
-.country-grid {
+.countryGrid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
   gap: 80px 60px;
@@ -135,18 +135,18 @@ input[type="text"]:focus {
   .container {
     padding: 40px 40px;
   }
-  .query-nav {
+  .queryNav {
     flex-direction: column;
     width: 100%;
   }
-  .search-field {
+  .searchField {
     margin-bottom: 40px;
     width: 100%;
   }
 }
 
 @media only screen and (min-width: 415px) and (max-width: 768px) {
-  .search-field {
+  .searchField {
     width: 350px;
   }
 }

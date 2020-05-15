@@ -2,7 +2,7 @@ import React, { Component } from "react";
 
 import CountryCard from "./CountryCard";
 
-import "./countries-list.css";
+import styles from "./CountriesList.module.css";
 
 class CountriesList extends Component {
   constructor(props) {
@@ -40,9 +40,9 @@ class CountriesList extends Component {
       );
     });
     return (
-      <div className="container">
-        <div className="query-nav">
-          <span className="search-field">
+      <div className={styles.container}>
+        <div className={styles.queryNav}>
+          <span className={styles.searchField}>
             <i
               className="fas fa-search"
               onClick={() => this.props.displaySearch(this.props.search)}
@@ -57,7 +57,7 @@ class CountriesList extends Component {
             />
           </span>
 
-          <div class="dropdown">
+          <div class={styles.dropdown}>
             <button>
               <span>{region ? region : "Filter by Region"}</span>
 
@@ -85,7 +85,7 @@ class CountriesList extends Component {
             </ul>
           </div>
         </div>
-        <div className="country-grid">{list}</div>
+        <div className={styles.countryGrid}>{list}</div>
       </div>
     );
   }

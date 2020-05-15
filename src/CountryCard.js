@@ -1,18 +1,18 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
-import "./country-card.css";
+import styles from "./CountryCard.module.css";
 
 class CountryCard extends Component {
   render() {
     const { name, population, region, capital, flag } = this.props;
     return (
-      <div className="country-card">
+      <div className={styles.countryCard}>
         <Link to={`/${name.toLowerCase()}`} className="link">
           <div
-            className="flag"
+            className={styles.flag}
             style={{ backgroundImage: `url(${flag})` }}
           ></div>
-          <div className="card-info">
+          <div className={styles.cardInfo}>
             <h3>{name}</h3>
             <p>
               Population: <span>{population.toLocaleString()}</span>
