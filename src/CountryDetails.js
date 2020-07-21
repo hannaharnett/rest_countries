@@ -61,7 +61,7 @@ class CountryDetails extends Component {
           .map((value, index) => {
             return (
               <div key={index}>
-                <Link to={`/${value.name.toLowerCase()}`}>
+                <Link to={`/${value.name.toLowerCase()}`} tabIndex="-1">
                   <button className={`link ${styles.borderBtn} ${styles.btn}`}>
                     {this.truncateString(value.name, 9)}
                   </button>

@@ -47,8 +47,11 @@ class CountriesList extends Component {
               className="fas fa-search"
               onClick={() => this.props.displaySearch(this.props.search)}
             ></i>
+            <label for="search" className="visually-hidden">Search for a country</label>
             <input
+              aria-label="Search for a country"
               type="text"
+              id="search"
               name="search"
               autoComplete="off"
               placeholder="Search for a country..."
