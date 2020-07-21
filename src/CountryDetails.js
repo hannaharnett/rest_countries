@@ -62,7 +62,7 @@ class CountryDetails extends Component {
             return (
               <div key={index}>
                 <Link to={`/${value.name.toLowerCase()}`} tabIndex="-1">
-                  <button className={`link ${styles.borderBtn} ${styles.btn}`}>
+                  <button aria-label={`Go to bordering country ${value.name}`} className={`link ${styles.borderBtn} ${styles.btn}`}>
                     {this.truncateString(value.name, 9)}
                   </button>
                 </Link>
