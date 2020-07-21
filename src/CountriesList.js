@@ -1,7 +1,6 @@
 import React, { Component } from "react";
-
 import CountryCard from "./CountryCard";
-
+import Dropdown from './Dropdown';
 import styles from "./CountriesList.module.css";
 
 class CountriesList extends Component {
@@ -26,6 +25,7 @@ class CountriesList extends Component {
   }
   render() {
     const { countries, region } = this.props;
+    const regions = ["Africa", "Americas", "Asia", "Europe", "Oceania", "Reset Filter"]
     const list = countries.map((country) => {
       const { name, capital, region, population, flag } = country;
       return (
@@ -56,34 +56,11 @@ class CountriesList extends Component {
               onKeyPress={this.onInputKeyPress}
             />
           </span>
-
-          <div class={styles.dropdown}>
-            <button>
-              <span>{region ? region : "Filter by Region"}</span>
-
-              <i className="fas fa-chevron-down"></i>
-            </button>
-            <ul>
-              <li data-id="Africa" onClick={this.onInputSelect}>
-                Africa
-              </li>
-              <li data-id="Americas" onClick={this.onInputSelect}>
-                Americas
-              </li>
-              <li data-id="Asia" onClick={this.onInputSelect}>
-                Asia
-              </li>
-              <li data-id="Europe" onClick={this.onInputSelect}>
-                Europe
-              </li>
-              <li data-id="Oceania" onClick={this.onInputSelect}>
-                Oceania
-              </li>
-              <li data-id="" onClick={this.onInputSelect}>
-                Remove filter
-              </li>
-            </ul>
-          </div>
+          <Dropdown 
+            activatorText={(region && region !== "Reset Filter") ? region : "Filter by Region"} 
+            items={regions} 
+            onClick={this.onInputSelect} 
+          />
         </div>
         <div className={styles.countryGrid}>{list}</div>
       </div>

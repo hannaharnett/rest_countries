@@ -39,7 +39,7 @@ class App extends Component {
     this.getData("https://restcountries.eu/rest/v2/all");
   }
   displaySearch(name, query) {
-    if (!name || query === "") {
+    if (!name || name === "Reset Filter") {
       return this.getAllCountries();
     }
     if (!query) {

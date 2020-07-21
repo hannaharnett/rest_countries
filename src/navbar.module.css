@@ -19,10 +19,6 @@
   margin-right: 8px;
 }
 
-.themeBtn:hover {
-  cursor: pointer;
-}
-
 @media only screen and (max-width: 768px) {
   .navbar {
     padding: 10px 40px;

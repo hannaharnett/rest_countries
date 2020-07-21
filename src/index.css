@@ -1,3 +1,15 @@
+* {
+  box-sizing: border-box;
+  padding: 0;
+}
+/*
+  This will hide the focus indicator if the element receives focus via the mouse,
+  but it will still show up on keyboard focus.
+*/
+*:focus:not(.focus-visible) {
+  outline: none;
+}
+
 /* define all color variables */
 :root {
   --border: rgba(0, 0, 0, 0.2);
@@ -21,8 +33,20 @@ button {
   background: var(--elements);
 }
 
-button:focus {
-  outline: var(--elements);
+button:hover {
+  cursor: pointer;
+}
+
+.visually-hidden {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+  white-space: nowrap;
 }
 
 body {
