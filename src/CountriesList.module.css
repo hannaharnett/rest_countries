@@ -5,16 +5,17 @@
   border-radius: 5px;
 }
 
+a {
+  text-decoration: none;
+  color: var(--text);
+}
+
 i {
   align-self: center;
 }
 
 .searchField i {
   margin-right: 15px;
-}
-
-i:hover {
-  cursor: pointer;
 }
 
 input {

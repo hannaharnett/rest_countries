@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Link } from 'react-router-dom';
 import CountryCard from "./CountryCard";
 import Dropdown from './Dropdown';
 import styles from "./CountriesList.module.css";
@@ -6,48 +7,49 @@ import styles from "./CountriesList.module.css";
 class CountriesList extends Component {
   constructor(props) {
     super(props);
-    this.onInputChange = this.onInputChange.bind(this);
-    this.onInputKeyPress = this.onInputKeyPress.bind(this);
-    this.onInputSelect = this.onInputSelect.bind(this);
+    this.state = {
+      countries: [],
+      search: "",
+      region: "Reset Filter",
+    };
+    this.getData = this.getData.bind(this);
+    this.handleChange = this.handleChange.bind(this);
+    this.handleDropdown = this.handleDropdown.bind(this);
   }
-  onInputChange(event) {
-    const { name, value } = event.target;
-    this.props.handleChange(name, value);
+
+  componentDidMount() {
+    this.getData();
   }
-  onInputKeyPress(event) {
-    if (event.key === "Enter") {
-      this.props.displaySearch(this.props.search);
-    }
+  handleChange(event) {
+    event.persist();
+    const { value } = event.target;
+    this.setState({ search: value });
   }
-  onInputSelect(event) {
-    this.props.handleChange("region", event.currentTarget.dataset.id);
-    this.props.displaySearch(event.currentTarget.dataset.id, "region");
+  async getData() {
+    let response = await fetch("https://restcountries.eu/rest/v2/all")
+    let json = await response.json();
+
+    this.setState({ countries: json })
+  }
+  handleDropdown(event) {
+    this.setState({ region: event.currentTarget.dataset.id });
   }
   render() {
-    const { countries, region } = this.props;
-    const regions = ["Africa", "Americas", "Asia", "Europe", "Oceania", "Reset Filter"]
-    const list = countries.map((country) => {
-      const { name, capital, region, population, flag } = country;
-      return (
-        <CountryCard
-          name={name}
-          capital={capital}
-          population={population}
-          region={region}
-          flag={flag}
-          key={name}
-        />
-      );
+    const { countries, region, search } = this.state;
+    const regions = ["Africa", "Americas", "Asia", "Europe", "Oceania", "Reset Filter"];
+
+    let countryList = countries.filter((country) => {
+      return country.name.toLowerCase().includes(search.toLowerCase()) && (region === 'Reset Filter' || country.region === region)
     });
+
     return (
       <div className={styles.container}>
         <div className={styles.queryNav}>
           <span className={styles.searchField}>
             <i
               className="fas fa-search"
-              onClick={() => this.props.displaySearch(this.props.search)}
             ></i>
-            <label for="search" className="visually-hidden">Search for a country</label>
+            <label htmlFor="search" className="visually-hidden">Search for a country</label>
             <input
               aria-label="Search for a country"
               type="text"
@@ -55,17 +57,32 @@ class CountriesList extends Component {
               name="search"
               autoComplete="off"
               placeholder="Search for a country..."
-              onChange={this.onInputChange}
-              onKeyPress={this.onInputKeyPress}
+              onChange={this.handleChange}
             />
           </span>
-          <Dropdown 
-            activatorText={(region && region !== "Reset Filter") ? region : "Filter by Region"} 
-            items={regions} 
-            onClick={this.onInputSelect} 
+          <Dropdown
+            activatorText={(region && region !== "Reset Filter") ? region : "Filter by Region"}
+            items={regions}
+            onClick={this.handleDropdown}
           />
         </div>
-        <div className={styles.countryGrid}>{list}</div>
+        <div className={styles.countryGrid}>
+          {countryList.map(country => {
+            return (
+              <Link to={{
+                pathname: `/${country.alpha3Code.toUpperCase()}`,
+                state: {
+                  countries: this.state.countries,
+                  currentCountry: country
+                }
+              }}
+                key={country.alpha3Code}
+              >
+                <CountryCard data={country} />
+              </Link>
+            )
+          })}
+        </div>
       </div>
     );
   }
