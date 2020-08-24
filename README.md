@@ -1,4 +1,20 @@
 # Frontend Mentor - REST Countries API with color theme switcher
+![Gif-demo-of-app](http://g.recordit.co/FLWXNQGKfp.gif)
+
+Pulls country data from the [REST Countries API](https://restcountries.eu) and displays it on the website. You can search for coutries, filter by region and switch between dark mode and light mode.
+
+## Installation
+### Clone
+Clone this repo to your local machine using [https://github.com/hannaharnett/rest_countries](https://github.com/hannaharnett/rest_countries)
+
+### Setup
+In the root folder run
+
+```
+$ npm install
+$ npm start
+```
+Go to localhost:3000 to view project
 
 ![Design preview for the REST Countries API with color theme switcher coding challenge](./design/desktop-preview.jpg)
 
